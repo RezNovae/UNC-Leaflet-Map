@@ -25,18 +25,21 @@
 		//Centering the map to Ehringhaus Residence Hall
 		var map = L.map('mapid').setView([35.90435849208649, -79.04290344741887], 17);
 
+
+		var QGISmap = L.tileLayer('file:///C:/Users/eug/OneDrive - University of North Carolina at Chapel Hill/Senior 2019 - 2020/Spring/Geol 370/Exercise/Tech 11 WebMap/Creating a Tile/{z}/{x}/{y}.png', {
+			minZoom: 12,
+			maxZoom: 16,
+			tms: false,
+			attribution: 'USGS'
+		})
+
 		//var QGISmap = L.map('map').setView([35.9036778896322, -79.04885827188566], 14.0);
 
 		var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 
-		var QGISmap = L.tileLayer('./Creating a Tile/{z}/{x}/{y}.png', {
-			minZoom: 12,
-			maxZoom: 16,
-			tms: false,
-			attribution: 'USGS'
-		})
+
 
 		var layerTiles = {
 			"Open Street Map": osm,
