@@ -26,12 +26,7 @@
 		var map = L.map('mapid').setView([35.90435849208649, -79.04290344741887], 17);
 
 
-		var QGISmap = L.tileLayer('./Creating a Tile/{z}/{x}/{y}.png', {
-			minZoom: 12,
-			maxZoom: 16,
-			tms: false,
-			attribution: 'USGS'
-		})
+
 
 		//var QGISmap = L.map('map').setView([35.9036778896322, -79.04885827188566], 14.0);
 
@@ -39,7 +34,12 @@
 		attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 
-
+		var QGISmap = L.tileLayer('./Creating a Tile/{z}/{x}/{y}.png', {
+			minZoom: 12,
+			maxZoom: 16,
+			tms: false,
+			attribution: 'USGS'
+		})
 
 		var layerTiles = {
 			"Open Street Map": osm,
