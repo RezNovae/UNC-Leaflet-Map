@@ -23,7 +23,7 @@
 
 		<script>
 		//Centering the map to Ehringhaus Residence Hall
-		var map = L.map('mapid').setView([35.90435849208649, -79.04290344741887], 17);
+		var map = L.map('mapid').setView([35.90435849208649, -79.04290344741887], 16.0);
 
 
 
@@ -35,8 +35,8 @@
 
 
 		var QGISmap = L.tileLayer('./Creating a Tile/{z}/{x}/{y}.png', {
-			minZoom: 12,
-			maxZoom: 16,
+			minZoom: 9,
+			maxZoom: 18,
 			tms: false,
 			attribution: 'USGS'
 		}).addTo(map)
