@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html>
-<body>
+﻿<!DOCTYPE html>
 
-<h1>My First Heading</h1>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<title>My First Map</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin=""/>
 
-<p>My first paragraph.</p>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+		crossorigin=""></script>
 
-</body>
+
+		<script src = "Ehringhaus.geojson"> </script>
+	</head>
+	<body>
+		<div id="mapid"></div>
+		<style>
+		#mapid{ width: 900px; height: 500px; }
+		</style>
+
+		<script>
+		//Centering the map to Ehringhaus Residence Hall
+		var map = L.map('mapid').setView([35.90435849208649, -79.04290344741887], 16.0);
+
+		var customPopup = "Ehrinhaus Residence Hall<br/><img src='https://theblacksheeponline.com/wp-content/uploads/2018/01/Ehringhaus_Residence_Hall_at_UNC-300x225.jpg'100px'/>";
+		
+		//Point marker
+			var marker =	L.marker([35.90435849208649, -79.04290344741887]).addTo(map).bindPopup(customPopup).openPopup();
+
+
+		//var QGISmap = L.map('map').setView([35.9036778896322, -79.04885827188566], 14.0);
+
+//Open Street Map
+		var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+//Georeference made from QGIS
+		var QGISmap = L.tileLayer('./Creating a Tile/{z}/{x}/{y}.png', {
+			minZoom: 9,
+			maxZoom: 18,
+			tms: false,
+			attribution: 'USGS'
+		}).addTo(map)
+
+//Creating a clickable layers to view
+		var layerTiles = {
+			"Open Street Map": osm,
+			"UNC Aerial Photo": QGISmap
+		}
+
+
+
+	//	L.marker([35.911271, -79.049807]).addTo(map).bindPopup('Hey I am at Carolina Hall 322').openPopup();
+
+
+		//Part 2
+		// L.geoJSON(ehringhaus).addTo(map)
+		//
+		//
+		// //Part 3 Making the sticker
+		// var uncIcon = L.icon({
+		// iconUrl: 'https://imageog.flaticon.com/icons/png/512/25/25694.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF',
+		// iconSize: [25,25],
+		// popupAnchor: [0,0]
+		// })
+		//
+		// //Calling the picture source
+		//var customPopup = "Ehrinhaus Residence Hall<br/><img src='https://theblacksheeponline.com/wp-content/uploads/2018/01/Ehringhaus_Residence_Hall_at_UNC-300x225.jpg'100px'/>";
+		//
+		//Setting up and tying things up. The icon is the variable we called uncIcon
+		// L.geoJSON(ehringhaus, {
+		// pointToLayer: function (feature, latlng) {
+		// return L.marker(latlng, {icon: uncIcon});}})
+		// .bindPopup(customPopup)
+		// .addTo(map);
+
+
+		//Turns the marker on or off
+				var vectors = {
+					"Ehringhaus": marker
+
+				}
+
+				L.control.layers(layerTiles, vectors).addTo(map);
+
+
+
+
+		</script>
+
+	</body>
 </html>
