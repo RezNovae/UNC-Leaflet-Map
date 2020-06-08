@@ -31,8 +31,6 @@
 			var marker =	L.marker([35.90435849208649, -79.04290344741887]).addTo(map).bindPopup(customPopup).openPopup();
 
 
-		//var QGISmap = L.map('map').setView([35.9036778896322, -79.04885827188566], 14.0);
-
 //Open Street Map
 		var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
@@ -50,32 +48,6 @@
 			"Open Street Map": osm,
 			"UNC Aerial Photo": QGISmap
 		}
-
-
-
-	//	L.marker([35.911271, -79.049807]).addTo(map).bindPopup('Hey I am at Carolina Hall 322').openPopup();
-
-
-		//Part 2
-		// L.geoJSON(ehringhaus).addTo(map)
-		//
-		//
-		// //Part 3 Making the sticker
-		// var uncIcon = L.icon({
-		// iconUrl: 'https://imageog.flaticon.com/icons/png/512/25/25694.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF',
-		// iconSize: [25,25],
-		// popupAnchor: [0,0]
-		// })
-		//
-		// //Calling the picture source
-		//var customPopup = "Ehrinhaus Residence Hall<br/><img src='https://theblacksheeponline.com/wp-content/uploads/2018/01/Ehringhaus_Residence_Hall_at_UNC-300x225.jpg'100px'/>";
-		//
-		//Setting up and tying things up. The icon is the variable we called uncIcon
-		// L.geoJSON(ehringhaus, {
-		// pointToLayer: function (feature, latlng) {
-		// return L.marker(latlng, {icon: uncIcon});}})
-		// .bindPopup(customPopup)
-		// .addTo(map);
 
 
 		//Turns the marker on or off
